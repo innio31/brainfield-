@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainfield Schools - Excellence in Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a4b8c;
+            --secondary: #f37b21;
+            --accent: #34a853;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e06e1d;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            align-items: center;
+            text-align: center;
+            position: fixed;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Hero Section with Sliding Background */
+    .hero {
+        background: #1a4b8c; /* Fallback color */
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        color: white;
+        text-align: center;
+        margin-top: 80px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        z-index: 1;
+    }
+
+    .hero-slide.active {
+        opacity: 1;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(26, 75, 140, 0.8), rgba(26, 75, 140, 0.8));
+        z-index: 2;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+        animation: fadeInUp 1.2s ease-out;
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        animation: fadeInUp 1.4s ease-out;
+    }
+
+    .hero-dots {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        z-index: 4;
+    }
+
+    .hero-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .hero-dot.active,
+    .hero-dot:hover {
+        background: white;
+        transform: scale(1.2);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .hero-content h1 {
+            font-size: 2.8rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2.3rem;
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+        
+        .hero-content p {
+            font-size: 1rem;
+        }
+        
+        .hero-dots {
+            bottom: 20px;
+        }
+    }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            background-color: var(--light);
+        }
+
+        .mv-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .mv-card {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mv-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .mv-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Admission Info */
+        .admission-info {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .admission-info p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        /* Achievements */
+        .achievements {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .achievements .section-title h2 {
+            color: white;
+        }
+
+        .achievements .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-col p, .footer-col li {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .mv-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+          .gallery-item {
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        height: 250px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .gallery-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-video {
+        transform: scale(1.05);
+    }
+    
+    .video-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        transform: translateY(100%);
+    }
+    
+    .gallery-item:hover .video-controls {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .play-pause-btn, .mute-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.3s ease;
+    }
+    
+    .play-pause-btn:hover, .mute-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .video-progress {
+        flex: 1;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #f37b21;
+        transition: width 0.1s linear;
+    }
+    
+    .gallery-caption {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+        transform: translateY(0);
+    }
+    
+    /* Adjust caption position when controls are visible */
+    .gallery-item:hover .gallery-caption {
+        bottom: 50px;
+    }
+    .copyright a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+    color: white;
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+            	<img src="images/logo.jpg" alt="Brainfield">
+                <div class="logo-text">
+<h2>Brainfield International <span>Schools</span></h2></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="admission.html"> Admission</a></li>
+                <li><a href="cbt.html"> CBT</a></li>
+                
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Sliding Background -->
+<section class="hero" id="home">
+    <!-- Background Images -->
+    <div class="hero-background">
+        <div class="hero-slide active" style="background-image: url('images/schoolface1.jpg');"></div>
+       <div class="hero-slide" style="background-image: url('images/schoolface2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/schoolface3.jpg');"></div>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="hero-overlay"></div>
+    
+    <!-- Content -->
+    <div class="container hero-content">
+        <h1>Shaping Tomorrow's Leaders Through Excellence</h1>
+        <p>At Brainfield International Schools, we provide a nurturing environment that fosters academic excellence, character development, and lifelong learning.</p>
+        <div class="hero-buttons">
+            <a href="admission.html" class="btn">Apply Now</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+    </div>
+    
+    <!-- Navigation Dots -->
+    <div class="hero-dots">
+        <span class="hero-dot active" data-slide="0"></span>
+        <span class="hero-dot" data-slide="1"></span>
+        <span class="hero-dot" data-slide="2"></span>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Brainfield International Schools</h2>
+                <p>Discover what makes our institution a leader in education</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Providing Quality Education Since 2012</h3>
+                    <p>Brainfield School was established with a vision to create an educational establishment that nurtures young minds and prepares them for the challenges of the future. For over 10 years, we have been committed to academic excellence and holistic development.</p>
+                    <p>Our campuses, with state-of-the-art facilities, includes modern classrooms, science and computer labs, a well-stocked library, and extensive sports facilities.</p>
+                    <p>We take pride in our diverse student community and our dedicated faculty who are experts in their respective fields and passionate about teaching.</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Learn More About Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/schoolface3.jpg" alt="Brainfield School Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section mission-vision" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+                <p>Guiding principles that shape our educational approach</p>
+            </div>
+            <div class="mv-container">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To be a professional Educational establishment committed to providing excellent education services by  emphasizing on our core values.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To provide qualitative and sound education through positive motivation, inspiration and guidance of competence resourceful personnel.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Core Values</h3>
+                    <ul>
+                    	<li>Discipline</li>
+                    <li>Integrity</li>
+                    <li>Determination</li>
+                    <li>Honesty</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Info Section -->
+    <section class="section" id="admission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admission Information</h2>
+                <p>Begin your journey with Brainfield International School</p>
+            </div>
+            <div class="admission-info">
+                <p>We are currently accepting applications for the upcoming 2025/2026 academic year. Brainfield International Schools offers a rigorous curriculum designed to challenge and inspire students to achieve their fullest potential.</p>
+                <p>Our admission process is designed to identify students who will thrive in our academic environment and contribute positively to our school community.</p>
+                <p>Limited seats are available across all grades. We encourage interested parents to begin the application process early.</p>
+                <a href="admission.html" class="btn">View Full Admission Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section achievements" id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Achievements</h2>
+                <p>Celebrating excellence in education and beyond</p>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/award.jpg" alt="Science Fair Winners">
+                    <div class="gallery-caption">National Science Fair Champions 2023</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/sports.jpg" alt="Inter-house sports">
+                    <div class="gallery-caption">Inter-House Sports -2019</div>
+                </div>
+              
+  <div class="gallery-item">
+    <video class="gallery-video" poster="images/lab.jpg" muted loop>
+        <source src="videos/lab.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+        <button class="play-pause-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <div class="video-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <button class="mute-btn">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+    <div class="gallery-caption">Students in the laboratory</div>
+</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Brainfield School</h3>
+                    <p>Excellence in Education since 2012. Committed to nurturing young minds and shaping future leaders.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#mission">Mission & Vision</a></li>
+                        <li><a href="#admission">Admission</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> School 1: Lugo Estate, Asore Road, Atan Ota, Ogun State.</li>
+                        <li><i class="fas fa-map-marker-alt"></i> School 2: Oko Filling, Owode Idiroko Road, Atan Ota, Ogun State.</li>
+                        <li><i class="fas fa-phone"></i> +234 803 239 7292</li>
+                        <li><i class="fas fa-envelope"></i> brainfieldschool1@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+    <p>&copy; 2025 Brainfield International Schools. All Rights Reserved.</p>
+    <p>Powered by <a href="https://digskills.netlify.app" target="_blank" style="color: var(--secondary);">DigSkills</a></p>
+</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Simple animation for sections when scrolling
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('.about-content, .mv-card, .admission-info, .gallery-item').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+        // Hero background slideshow functionality
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-dot');
+        let currentHeroSlide = 0;
+        let heroInterval;
+
+        // Function to show a specific slide
+        function showHeroSlide(index) {
+            // Remove active class from all slides and dots
+            heroSlides.forEach(slide => slide.classList.remove('active'));
+            heroDots.forEach(dot => dot.classList.remove('active'));
+            
+            // Handle wrap-around for slide index
+            if (index >= heroSlides.length) currentHeroSlide = 0;
+            else if (index < 0) currentHeroSlide = heroSlides.length - 1;
+            else currentHeroSlide = index;
+            
+            // Add active class to current slide and dot
+            heroSlides[currentHeroSlide].classList.add('active');
+            heroDots[currentHeroSlide].classList.add('active');
+        }
+
+        // Function to move to next slide
+        function nextHeroSlide() {
+            showHeroSlide(currentHeroSlide + 1);
+        }
+
+        // Start automatic slideshow
+        function startHeroSlideshow() {
+            heroInterval = setInterval(nextHeroSlide, 5000); // Change slide every 5 seconds
+        }
+
+        // Event listeners for dots
+        heroDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                clearInterval(heroInterval);
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                showHeroSlide(slideIndex);
+                startHeroSlideshow();
+            });
+        });
+
+        // Initialize slideshow
+        startHeroSlideshow();
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach(item => {
+            const video = item.querySelector('.gallery-video');
+            const playPauseBtn = item.querySelector('.play-pause-btn');
+            const muteBtn = item.querySelector('.mute-btn');
+            const progressBar = item.querySelector('.progress-bar');
+            const videoProgress = item.querySelector('.video-progress');
+            
+            if (!video) return;
+            
+            // Play/Pause functionality
+            playPauseBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                togglePlayPause();
+            });
+            
+            function togglePlayPause() {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            }
+            
+            // Mute/Unmute functionality
+            muteBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                video.muted = !video.muted;
+                muteBtn.innerHTML = video.muted ? 
+                    '<i class="fas fa-volume-mute"></i>' : 
+                    '<i class="fas fa-volume-up"></i>';
+            });
+            
+            // Update progress bar
+            video.addEventListener('timeupdate', function() {
+                const percent = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = percent + '%';
+            });
+            
+            // Seek functionality
+            videoProgress.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const pos = (e.pageX - this.getBoundingClientRect().left) / this.offsetWidth;
+                video.currentTime = pos * video.duration;
+            });
+            
+            // Reset video when it ends
+            video.addEventListener('ended', function() {
+                video.currentTime = 0;
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            });
+            
+            // Play on hover, pause when not hovering
+            item.addEventListener('mouseenter', function() {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                if (!video.paused) {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
